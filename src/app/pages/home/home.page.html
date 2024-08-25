@@ -1,0 +1,48 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Reciclica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list>
+    <ion-item color="light">
+      <ion-avatar slot="start">
+        <img alt="Johanes" src="https://media.licdn.com/dms/image/v2/D5603AQE96Vn5Lee4Zw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1703853685681?e=1729728000&v=beta&t=3ZhN3_aqXpYNbeSt0R_Cxv6DCAoN4gVXxz5Hsl78PYY" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Johanes Berchmann</h2>
+        <p>22/496923/SV/21050</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <app-pickup-call-card
+  status="hold"
+  updatedAt="24/08/2024 17:00:00"
+  createdAt="24/08/2024"
+  notes="We have two bags that are full, one with plastic and the other with glasses">
+
+  <!-- Header -->
+  <ion-header header>
+    <ion-card-subtitle>Last pickup call</ion-card-subtitle>
+  </ion-header>
+
+  <!-- Footer -->
+  <ion-footer footer>
+    <ion-button color="primary" fill="clear" size="full" (click)="goToPickupCall()">View details...</ion-button>
+  </ion-footer>
+
+</app-pickup-call-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="newPickupCall()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
