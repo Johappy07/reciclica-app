@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';  // Import Store from NgRx or your state management library
 import { LoginPageForm } from './login.page.form';
+import { hide, show } from 'src/store/loading/loading.actions';
 
 @Component({
   selector: 'app-login',
@@ -12,17 +14,29 @@ export class LoginPage implements OnInit {
 
   form!: FormGroup;
 
-  constructor(private route: Router, private formBuilder: FormBuilder ) { }
+  constructor(
+    private route: Router,
+    private formBuilder: FormBuilder,
+    private store: Store // Inject the store here
+  ) {}
 
   ngOnInit() {
     this.form = new LoginPageForm(this.formBuilder).createForm();
   }
 
-  login() {
-    this.route.navigate(['home']); // Updated to lowercase 'home'
-  }
-  register() {
-    this.route.navigate(['register']); // Updated to lowercase 'home'
+  forgotEmailPassword() {
+    this.store.dispatch(show());  // Now the store is properly initialized
+
+    setTimeout(() => {
+      this.store.dispatch(hide())
+    }, 3000);
   }
 
+  login() {
+    this.route.navigate(['home']);
+  }
+
+  register() {
+    this.route.navigate(['register']);
+  }
 }

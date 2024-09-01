@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { PickupCallPage } from './pickup-call.page';
 import { IonicModule } from '@ionic/angular';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PickupCallPage', () => {
   let component: PickupCallPage;
@@ -14,12 +14,13 @@ describe('PickupCallPage', () => {
       declarations: [PickupCallPage],
       imports: [
         IonicModule.forRoot(),
-        AppRoutingModule // Import RouterTestingModule
+        RouterTestingModule // Ganti AppRoutingModule dengan RouterTestingModule
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PickupCallPage);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router); // Inisialisasi router
     fixture.detectChanges();
   }));
 
@@ -28,7 +29,6 @@ describe('PickupCallPage', () => {
 
     component.newPickupCall();
 
-    expect(router).toHaveBeenCalledWith(['home']);
-
+    expect(router.navigate).toHaveBeenCalledWith(['home']); // Perbaikan assertion
   });
 });

@@ -25,9 +25,9 @@ describe('LoaderPage', () => {
   });
 
   it('should go to login page after', () => {
+    spyOn(router, 'navigate');
 
     component.ngOnInit();
-
 
     expect(router.navigate).toHaveBeenCalledWith(['Login']);
   });

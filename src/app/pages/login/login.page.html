@@ -7,7 +7,7 @@
         </ion-card-header>
 
         <ion-card-content>
-            <ion-input
+          <ion-input
               type="email"
               fill="solid"
               label="Email"
@@ -23,7 +23,8 @@
               errorText="Password is required"
               formControlName="password"
             ></ion-input>
-          <ion-button color="dark" fill="clear" [disabled]="!(form.get('email')?.valid)">Forgot Email & Password</ion-button>
+          <ion-button color="dark" fill="clear" [disabled]="!(form.get('email')?.valid)"
+          (click)="forgotEmailPassword()">Forgot Email & Password</ion-button>
           <ion-button color="primary" size="full" [disabled]="!form.valid" (click)="login()">Login</ion-button>
           <ion-button color="primary" fill="clear" size="full" (click)="register()">Register</ion-button>
         </ion-card-content>
